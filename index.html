@@ -1,0 +1,304 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Alaska VA Healthcare System - Welcome</title>
+      <style>
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
+        body {
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          background: linear-gradient(135deg, #003478 0%, #002241 100%);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          padding: 20px;
+        }
+
+        .greeting-container {
+          background: white;
+          border-radius: 12px;
+          box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+          padding: 50px 60px;
+          text-align: center;
+          max-width: 600px;
+          animation: fadeIn 0.8s ease-in;
+          border-top: 5px solid #003478;
+        }
+
+        .va-header {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 30px;
+          gap: 15px;
+        }
+
+        .va-seal {
+          font-size: 3em;
+          color: #003478;
+        }
+
+        .va-title {
+          text-align: left;
+        }
+
+        .va-title h2 {
+          color: #003478;
+          font-size: 1.1em;
+          font-weight: 700;
+          margin: 0;
+        }
+
+        .va-title p {
+          color: #666;
+          font-size: 0.9em;
+          margin: 2px 0 0 0;
+        }
+
+        h1 {
+          color: #003478;
+          font-size: 2.2em;
+          margin-bottom: 15px;
+          animation: slideDown 0.6s ease-out;
+        }
+
+        .facility-info {
+          background: #f0f4f8;
+          border-left: 4px solid #003478;
+          padding: 15px;
+          margin-bottom: 25px;
+          border-radius: 5px;
+          animation: slideUp 0.6s ease-out 0.1s both;
+        }
+
+        .facility-info p {
+          color: #333;
+          font-size: 0.95em;
+          margin: 5px 0;
+        }
+
+        .facility-info strong {
+          color: #003478;
+        }
+
+        .greeting-message {
+          color: #555;
+          font-size: 1.15em;
+          margin-bottom: 20px;
+          line-height: 1.6;
+          animation: slideUp 0.6s ease-out 0.2s both;
+        }
+
+        .time-display {
+          color: #003478;
+          font-size: 1.1em;
+          font-weight: 600;
+          margin-bottom: 20px;
+          animation: slideUp 0.6s ease-out 0.3s both;
+        }
+
+        .shift-status {
+          background: #e8f4f8;
+          border: 2px solid #003478;
+          padding: 15px;
+          border-radius: 8px;
+          margin-bottom: 20px;
+          animation: slideUp 0.6s ease-out 0.4s both;
+        }
+
+        .shift-status p {
+          margin: 5px 0;
+          font-size: 0.95em;
+        }
+
+        .shift-status strong {
+          color: #003478;
+          font-size: 1.1em;
+        }
+
+        .quick-links {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+          justify-content: center;
+          margin-top: 25px;
+          animation: slideUp 0.6s ease-out 0.5s both;
+        }
+
+        .quick-link-btn {
+          background: #003478;
+          color: white;
+          padding: 10px 18px;
+          border-radius: 6px;
+          text-decoration: none;
+          font-size: 0.9em;
+          border: none;
+          cursor: pointer;
+          transition: background 0.3s ease;
+        }
+
+        .quick-link-btn:hover {
+          background: #002241;
+        }
+
+        .footer-text {
+          color: #999;
+          font-size: 0.8em;
+          margin-top: 20px;
+          padding-top: 15px;
+          border-top: 1px solid #eee;
+        }
+
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+
+        @keyframes slideDown {
+          from {
+            transform: translateY(-20px);
+            opacity: 0;
+          }
+          to {
+            transform: translateY(0);
+            opacity: 1;
+          }
+        }
+
+        @keyframes slideUp {
+          from {
+            transform: translateY(20px);
+            opacity: 0;
+          }
+          to {
+            transform: translateY(0);
+            opacity: 1;
+          }
+        }
+      </style>
+    </head>
+    <body>
+      <div class="greeting-container">
+        <div class="va-header">
+          <div class="va-seal">⭐</div>
+          <div class="va-title">
+            <h2>VA Healthcare System</h2>
+            <p>Alaska Region</p>
+          </div>
+        </div>
+
+        <h1 id="greeting">Welcome</h1>
+
+        <div class="facility-info">
+          <p><strong>Facility:</strong> <span id="facility">Alaska VA Healthcare System</span></p>
+          <p><strong>Location:</strong> Anchorage, AK</p>
+          <p><strong>Date:</strong> <span id="dateDisplay"></span></p>
+        </div>
+
+        <p class="greeting-message" id="message">
+          Welcome to the Alaska VA Healthcare System. Thank you for your dedicated service to our veterans.
+        </p>
+
+        <div class="shift-status">
+          <p><strong>Current Shift:</strong> <span id="shiftTime"></span></p>
+          <p id="shiftMessage"></p>
+        </div>
+
+        <p class="time-display">
+          <strong>Time:</strong> <span id="timeDisplay"></span>
+        </p>
+
+        <div class="quick-links">
+          <button class="quick-link-btn" onclick="alert('Link to Patient Records Portal')">Patient Records</button>
+          <button class="quick-link-btn" onclick="alert('Link to Staff Directory')">Staff Directory</button>
+          <button class="quick-link-btn" onclick="alert('Link to Resources')">Resources</button>
+        </div>
+
+        <p class="footer-text">Alaska VA Healthcare System | Supporting Veterans & Their Families</p>
+      </div>
+
+      <script>
+        function updateGreeting() {
+          const hour = new Date().getHours();
+          const dayOfWeek = new Date().toLocaleDateString('en-US', { weekday: 'long' });
+          const date = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+          
+          ```javascript
+          let greeting = '';
+          let message = '';
+
+          if (hour < 12) {
+            greeting = 'Good Morning';
+            message = 'Welcome to the Alaska VA Healthcare System. Thank you for your dedicated service to our veterans.';
+          } else if (hour < 18) {
+            greeting = 'Good Afternoon';
+            message = 'Welcome back to the Alaska VA Healthcare System. We appreciate your continued service.';
+          } else {
+            greeting = 'Good Evening';
+            message = 'Thank you for your evening shift at the Alaska VA Healthcare System. Your dedication matters.';
+          }
+
+          document.getElementById('greeting').textContent = greeting;
+          document.getElementById('message').textContent = message;
+          document.getElementById('dateDisplay').textContent = date;
+
+          // Shift information
+          let shiftTime = '';
+          let shiftMessage = '';
+
+          if (hour >= 6 && hour < 14) {
+            shiftTime = 'Day Shift (6:00 AM - 2:00 PM)';
+            shiftMessage = 'Day shift in progress';
+          } else if (hour >= 14 && hour < 22) {
+            shiftTime = 'Evening Shift (2:00 PM - 10:00 PM)';
+            shiftMessage = 'Evening shift in progress';
+          } else {
+            shiftTime = 'Night Shift (10:00 PM - 6:00 AM)';
+            shiftMessage = 'Night shift in progress';
+          }
+
+          document.getElementById('shiftTime').textContent = shiftTime;
+          document.getElementById('shiftMessage').textContent = shiftMessage;
+        }
+
+        function updateTime() {
+          const now = new Date();
+          const timeString = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true });
+          document.getElementById('timeDisplay').textContent = timeString;
+        }
+
+        // Update greeting and time on load
+        updateGreeting();
+        updateTime();
+
+        // Update time every second
+        setInterval(updateTime, 1000);
+
+        // Update greeting every minute
+        setInterval(updateGreeting, 60000);
+      </script>
+    </body>
+  </html>
+```
+
+This continuation completes the JavaScript functionality for the VA Healthcare System greeting page. The code:
+
+- Updates the greeting based on the current time of day
+- Displays personalized messages for morning, afternoon, and evening
+- Shows the current date in a readable format
+- Determines and displays the current shift information
+- Updates the time display every second
+- Refreshes the greeting message every minute
+
+The page will now be fully functional with dynamic content that updates based on the current time and date.
